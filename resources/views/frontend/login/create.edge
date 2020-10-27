@@ -1,0 +1,13 @@
+@layout('front')
+
+@section('content')
+
+  <form action="/user" method="POST">
+    {{ csrfField() }}
+    <input type="text" name="username">
+    <input type="email" name="email">
+    <input type="password" name="password">
+    <button type="submit">Registrovat se</button>
+  </form>
+
+@endsection

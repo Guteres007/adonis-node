@@ -1,0 +1,24 @@
+@layout('backend/master')
+
+@section('content')
+
+
+<ul>
+   @each(post in posts)
+    <li>
+      {{post.title}} <br>
+      {{post.body}}
+    <a href="{{route('post.destroy', {id: post.id})}}" onclick="return confirm('Smazat?');">Smazat</a>
+      <hr>
+    </li>
+   @endeach
+</ul>
+
+  <form action="/backend/posts" method="POST">
+    {{ csrfField() }}
+    <input type="text" name="title" placeholder="Title"><br/>
+    <textarea name="body" rows="20" cols="140" placeholder="Text"></textarea><br/>
+    <button type="submit">Odeslat</button>
+  </form>
+
+@endsection

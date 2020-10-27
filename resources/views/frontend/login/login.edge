@@ -1,0 +1,17 @@
+@layout('front')
+
+@section('content')
+  @loggedIn
+  {{auth.user.username}}
+  <p> <a href="/logout">Click here</a> to logout </p>
+  @else
+  <form action="/login" method="POST">
+    {{ csrfField() }}
+    <input type="email" name="email">
+    <input type="password" name="password">
+    <button type="submit">Přihlásit se</button>
+  </form>
+  @endloggedIn
+
+
+@endsection
